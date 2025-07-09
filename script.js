@@ -26,35 +26,35 @@
 // console.log(products);
 
 
-let products = []
+// let products = []
 
-function addProduct(product){
-  products.push(product)
-}
+// function addProduct(product){
+//   products.push(product)
+// }
 
-function removeProduct(product) {
-  products = products.filter((e,i)=>{
-    return product != e.id
-  })
+// function removeProduct(product) {
+//   products = products.filter((e,i)=>{
+//     return product != e.id
+//   })
 
-}
+// }
 
-//Adding something in product
+// //Adding something in product
 
-addProduct({id: products.length+1, content: "Going to market"})
-addProduct({id: products.length+1, content:"presentation"})
-addProduct({id: products.length+1, content:"Going to market"})
-addProduct({id: products.length+1, content:"go to the office"})
+// addProduct({id: products.length+1, content: "Going to market"})
+// addProduct({id: products.length+1, content:"presentation"})
+// addProduct({id: products.length+1, content:"Going to market"})
+// addProduct({id: products.length+1, content:"go to the office"})
 
-console.log(products);
+// console.log(products);
 
-//Remove something in product
+// //Remove something in product
 
-removeProduct(3)
+// removeProduct(3)
 
-addProduct({id: products.length+1, content:"something nice"})
+// addProduct({id: products.length+1, content:"something nice"})
 
-console.log(products);
+// console.log(products);
 
 
 //EXAMPLE on SPLICE
@@ -73,27 +73,27 @@ console.log(products);
 
 //result will be [22, 8]
 
-const arr = [22, 8, 'hello', 55]
-arr.splice(0, 1)
-console.log(arr)
+// const arr = [22, 8, 'hello', 55]
+// arr.splice(0, 1)
+// console.log(arr)
 
 
-//example on FILTER
+// //example on FILTER
 
-let items = [22, 8, 'hello', 55]
-items = items.filter((e,i)=>{
-    return e%2==1
-    return e != "hello"
-})
-console.log(items)
+// let items = [22, 8, 'hello', 55]
+// items = items.filter((e,i)=>{
+//     return e%2==1
+//     return e != "hello"
+// })
+// console.log(items)
 
 //How to generate a random number
 //HINT : go to Math in javasript on chrome (W3school)
 
-console.log(Math.floor(Math.random()*1000))
-console.log(Math.floor(Math.random()*1000))
-console.log(Math.ceil(Math.random()*1000))
-console.log(Math.ceil(Math.random()*1000))
+// console.log(Math.floor(Math.random()*1000))
+// console.log(Math.floor(Math.random()*1000))
+// console.log(Math.ceil(Math.random()*1000))
+// console.log(Math.ceil(Math.random()*1000))
 
 
 
@@ -110,26 +110,56 @@ function addTodo(todo){
   todos.push(todo)
 }
 
-function removeTodo(todo) {
-  todos = todos.filter((e,i)=>{
-    return todo != e.id
-  })
+// function removeTodo(todo) {
+//   todos = todos.filter((e,i)=>{
+//     return todo != e.id
+//   })
 
-}
+// }
+ //adding value to input and making it reflect in console.
+
+// document.getElementById('btn').addEventListener('click',()=>{
+// addTodo({id:generateId(), content: document.getElementById('inp').value})
+// })
+
+//Adding value to an array using click button
+
+// document.getElementById('btn').addEventListener('click',()=>{
+//   console.log(document.getElementById('inp').value)
+//   console.log(todos);
+// })
+
+document.getElementById('btn').addEventListener('click',()=>{
+addTodo({id: generateId(), content: document.getElementById('inp').value})
+
+const list = document.getElementById('todos-list')
+list.innerHTML = ''
+todos.forEach((todo,idx)=>{
+  const li = document.createElement('li')
+  // li.innerHTML = todo.content   this is thesame as li.textContent = todo.content
+  li.textContent = todo.content
+  list.appendChild(li)
+})
+
+document.getElementById('inp').value=''
+})
+
+
+  
 
 //Adding something in todo
 
-addTodo({id: generateId(), content: "Going to market"})
-addTodo({id: generateId(), content:"presentation"})
-addTodo({id: generateId(), content:"Going to market"})
-addTodo({id: generateId(), content:"go to the office"})
+// addTodo({id: generateId(), content: "Going to market"})
+// addTodo({id: generateId(), content:"presentation"})
+// addTodo({id: generateId(), content:"Going to market"})
+// addTodo({id: generateId(), content:"go to the office"})
 
-console.log(todos);
+// console.log(todos);
 
-//Remove something in todo
+// //Remove something in todo
 
-removeTodo(todos[2].id)
+// removeTodo(todos[2].id)
 
-addTodo({id: generateId(), content:"something nice"})
+// addTodo({id: generateId(), content:"something nice"})
 
-console.log(todos);
+// console.log(todos);

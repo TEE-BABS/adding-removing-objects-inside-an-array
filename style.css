@@ -45,3 +45,11 @@ body{
   height: 80%;
   border: 1px solid;
 }
+
+#todos-list li{
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(128, 128, 128, 0.3);
+  border-radius: 5px;
+}
