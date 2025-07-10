@@ -110,12 +110,30 @@ function addTodo(todo){
   todos.push(todo)
 }
 
-// function removeTodo(todo) {
-//   todos = todos.filter((e,i)=>{
-//     return todo != e.id
-//   })
+function removeTodo(todo) {
+  todos = todos.filter((e,i)=>{
+    return todo != e.id
+  })
 
-// }
+}
+
+function renderInfo(){
+  const list = document.getElementById('todos-list')
+list.innerHTML = ''
+todos.forEach((todo,idx)=>{
+  const div = document.createElement('div')
+  const li = document.createElement('li')
+  const img = document.createElement('img')
+  img.src = 'https://img.icons8.com/ios11/512/FFFFFF/delete.png'
+  img.alt = todo.id
+  // li.innerHTML = todo.content   this is thesame as li.textContent = todo.content
+  li.textContent = todo.content
+  img.classList.add('bin')
+  div.appendChild(li)
+  div.appendChild(img)
+  list.appendChild(div)
+})
+}
  //adding value to input and making it reflect in console.
 
 // document.getElementById('btn').addEventListener('click',()=>{
@@ -132,17 +150,74 @@ function addTodo(todo){
 document.getElementById('btn').addEventListener('click',()=>{
 addTodo({id: generateId(), content: document.getElementById('inp').value})
 
-const list = document.getElementById('todos-list')
-list.innerHTML = ''
-todos.forEach((todo,idx)=>{
-  const li = document.createElement('li')
-  // li.innerHTML = todo.content   this is thesame as li.textContent = todo.content
-  li.textContent = todo.content
-  list.appendChild(li)
-})
+
+// const list = document.getElementById('todos-list')
+// list.innerHTML = ''
+// todos.forEach((todo,idx)=>{
+//   const div = document.createElement('div')
+//   const li = document.createElement('li')
+//   const img = document.createElement('img')
+//   img.src = 'https://img.icons8.com/ios11/512/FFFFFF/delete.png'
+//   img.alt = todo.id
+//   // li.innerHTML = todo.content   this is thesame as li.textContent = todo.content
+//   li.textContent = todo.content
+//   img.classList.add('bin')
+//   div.appendChild(li)
+//   div.appendChild(img)
+//   list.appendChild(div)
+// })
+
+
+//Instead of writing the Above long line of Code, we can put them in a function E.G '(function renderIinfo())' and use it anywhere we want such as its used below.
+
+renderInfo()
+
+
+//this is another line of code
 
 document.getElementById('inp').value=''
 })
+
+
+
+//REMOVAL PROCESS
+
+//step 1 : get click on bin image only
+
+document.getElementById('todos-list').addEventListener('click',(e) => {
+  // console.log(e.target.tagName);
+  if(e.target.tagName == 'IMG'){
+    const id = e.target.getAttribute('alt')
+    // console.log(id)
+    removeTodo(id)
+    renderInfo()
+//   const list = document.getElementById('todos-list')
+// list.innerHTML = ''
+// todos.forEach((todo,idx)=>{
+//   const div = document.createElement('div')
+//   const li = document.createElement('li')
+//   const img = document.createElement('img')
+//   img.src = 'https://img.icons8.com/ios11/512/FFFFFF/delete.png'
+//   img.alt = todo.id
+//   // li.innerHTML = todo.content   this is thesame as li.textContent = todo.content
+//   li.textContent = todo.content
+//   img.classList.add('bin')
+//   div.appendChild(li)
+//   div.appendChild(img)
+//   list.appendChild(div)
+// })
+ }
+
+  // console.log(todos);
+})
+
+
+
+
+
+
+
+
 
 
   
