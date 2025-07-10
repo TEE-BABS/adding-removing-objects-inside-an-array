@@ -43,7 +43,7 @@ body{
 
 .main-todo-container{
   height: 80%;
-  border: 1px solid;
+  
 }
 #todos-list{
   display: flex;
